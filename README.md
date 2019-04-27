@@ -1,4 +1,4 @@
-# Templates I use for my projects (dev only)
+# Boilerplates I use for my projects (dev only)
 
 ## docker-php
 
