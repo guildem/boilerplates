@@ -11,7 +11,6 @@ volumes:
 
 services:
   php:
-    container_name: php
     build:
       context: .
       dockerfile: docker/php7.Dockerfile
@@ -29,7 +28,6 @@ services:
       - "traefik.enable=false"
 
   www:
-    container_name: www
     image: nginx:alpine
     networks:
       - traefik
@@ -44,7 +42,6 @@ services:
       - php
 
   db:
-    container_name: db
     image: mariadb
     env_file: .env
     networks:
@@ -55,7 +52,6 @@ services:
       - "traefik.enable=false"
 
   mails:
-    container_name: mails
     image: mailhog/mailhog
     networks:
       - traefik
