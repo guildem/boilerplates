@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.10
 
 # Build arguments to configure php
 ARG PHP_PORT=9000
