@@ -38,5 +38,6 @@ composer create-project symfony/skeleton www
 #docker-compose up -d
 
 # use symfony console on a running instance
-alias sf='docker-compose run php php /var/www/bin/console'
+alias sf='docker-compose exec php php /var/www/bin/console'
+alias composer='docker-compose exec php php /var/www/composer.phar'
 ~~~
