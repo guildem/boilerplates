@@ -1,8 +1,8 @@
-# Boilerplates I use for my projects (dev only)
+# Boilerplates used for my projects (dev only)
 
 The first thing to do is to start base docker configuration.
 
-## docker-base
+## Base
 
 This container composition adds a external network named *traefik*.  
 In this network, a **traefik** reverse proxy and **portainer** docker admin are started.  
@@ -36,7 +36,7 @@ xdg-open https://traefik.base.localhost
 xdg-open https://portainer.base.localhost
 ~~~
 
-## docker-php
+## PHP
 
 This container uses an external network named *traefik* running a global traefik container.  
 This php image built gives **alpine 3.10** with **php 7.3**.  
