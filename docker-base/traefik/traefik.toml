@@ -1,0 +1,28 @@
+# specify entry points
+defaultEntryPoints = ["https","http"]
+
+# define entry points
+[entryPoints]
+    [entryPoints.http]
+    address = ":80"
+        [entryPoints.http.redirect]
+        entryPoint = "https"
+    [entryPoints.https]
+        address = ":443"
+        [entryPoints.https.tls]
+
+# private https certificate
+[[tls]]
+    entryPoints = ["https"]
+    [tls.certificate]
+        certFile = "cert.pem"
+        keyFile = "cert.key"
+
+# let's encrypt certificate
+# [acme]
+#     email = "postmaster@localhost"
+#     storage = "letsencrypt.json"
+#     entryPoint = "https"
+#     onHostRule = true
+#         [acme.httpChallenge]
+#         entryPoint = "http"

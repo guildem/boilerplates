@@ -1,0 +1,42 @@
+version: '3.4'
+
+networks:
+  traefik:
+    external: true
+
+volumes:
+  portainer:
+    name: portainer
+
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:v1.7-alpine
+    command: --api --docker --docker.domain=${DOMAIN:-localhost} --logLevel=INFO
+    networks:
+      - traefik
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./traefik:/etc/traefik
+    labels:
+      - "traefik.port=8080"
+      - "traefik.backend=traefik"
+
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    networks:
+      - traefik
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer:/data
+    labels:
+      - "traefik.port=9000"
+      - "traefik.backend=portainer"
+    depends_on:
+      - traefik
