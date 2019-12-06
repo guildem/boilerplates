@@ -26,6 +26,7 @@ cp .env.dist .env
 vim .env
 
 # create and start containers
+docker network create traefik
 docker-compose up -d
 
 # stop base containers
