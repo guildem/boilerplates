@@ -66,6 +66,9 @@ wget -O www/composer.phar https://getcomposer.org/download/1.9.1/composer.phar
 # download wordpress if needed
 wget -O - https://fr.wordpress.org/latest-fr_FR.tar.gz | tar -xzC www --strip-components=1
 
+# download wordpress stubs to help completion like intelephense if needed
+wget -O www/wp-stubs-dev.php https://github.com/GiacoCorsiglia/wordpress-stubs/blob/master/wordpress-stubs.php
+
 # install symfony if needed
 sed -i 'cs#\/var\/www#/var/www/public#g' docker/nginx.conf
 rm -rf www
