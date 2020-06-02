@@ -35,6 +35,7 @@ RUN apk --no-cache add \
         php7-zlib \
 
         php7-gd \
+        php7-zip \
         php7-mysqli
 
 # Create volume shared with other containers
