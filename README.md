@@ -60,9 +60,6 @@ docker-compose logs -f
 # download adminer if needed
 wget -O www/adminer.php https://www.adminer.org/latest.php
 
-# download composer if needed
-wget -O www/composer.phar https://getcomposer.org/download/1.9.1/composer.phar
-
 # download wordpress if needed
 wget -O - https://fr.wordpress.org/latest-fr_FR.tar.gz | tar -xzC www --strip-components=1
 
@@ -79,5 +76,5 @@ composer create-project symfony/skeleton www
 
 # use symfony console on a running instance
 alias sf='docker-compose exec php php /var/www/bin/console'
-alias composer='docker-compose exec php php /var/www/composer.phar'
+alias composer='docker-compose exec php composer --working-dir /var/www'
 ~~~
