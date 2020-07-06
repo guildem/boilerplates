@@ -33,10 +33,12 @@ RUN apk --no-cache add \
         php7-xmlreader \
         php7-xmlwriter \
         php7-zlib \
-
+        \
         php7-gd \
         php7-zip \
-        php7-mysqli
+        php7-pdo_mysql \
+        php7-mysqli \
+        composer
 
 # Create volume shared with other containers
 RUN sed -e "s|^;*clear_env\s*=.*$|clear_env = no|" \
