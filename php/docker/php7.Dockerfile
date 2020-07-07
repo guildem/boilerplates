@@ -47,8 +47,9 @@ RUN sed -e "s|^;*clear_env\s*=.*$|clear_env = no|" \
         -e "s|^;*group\s*=.*$|group = ${PHP_GROUP}|" \
         -i /etc/php7/php-fpm.d/www.conf
 
-# Create volume shared with other containers
+# Create volume shared with other containers and set it default
 VOLUME ["/var/www"]
+WORKDIR "/var/www"
 
 # Expose default php-fpm port
 EXPOSE ${PHP_PORT}
