@@ -57,6 +57,9 @@ docker-compose down --rmi all
 # show logs
 docker-compose logs -f
 
+# check your php configuration
+echo "<?php phpinfo(); ?>" | tee www/phpinfo.php
+
 # download adminer if needed
 wget -O www/adminer.php https://www.adminer.org/latest.php
 
